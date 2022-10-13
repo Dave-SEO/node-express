@@ -1,0 +1,958 @@
+{
+	"info": {
+		"_postman_id": "05c08624-b628-457e-9ca8-54ce355dad9b",
+		"name": "测试",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23416439"
+	},
+	"item": [
+		{
+			"name": "用户列表",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaW5mbyI6eyJ1c2VybmFtZSI6ImRhdmUiLCJwYXNzd29yZCI6IjEyMzQ1NiJ9LCJpYXQiOjE2NjQwMjAyODEsImV4cCI6MTY2NDAyMzg4MX0.2OrC3D_96m_o8NJyEbyEPtAXvnu7NoFFNvPNxXtUVZE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/user/list",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "添加用户",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"zhangsan\",\n    \"age\": 12\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8081/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8081",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改用户",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"dave\",\n    \"email\": \"1232@qq.com\",\n    \"phone\": \"13312345648\",\n    \"password\": \"123456\",\n    \"age\": \"18\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "用户注册",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"dave3\",\n    \"email\": \"12332e@qq.com\",\n    \"phone\": \"13312541648\",\n    \"password\": \"123456\",\n    \"age\": \"18\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/user/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "用户登陆",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"dave3\",\n    \"password\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/user/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "图片上传",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaW5mbyI6eyJpbWFnZSI6bnVsbCwiY292ZXIiOm51bGwsImNoYW5uZWxkZXMiOm51bGwsIl9pZCI6IjYzMmQ3NmFjZTMzODhkODFlNGY5MmVmMCIsInVzZXJuYW1lIjoiZGF2ZSIsImFnZSI6MTgsImVtYWlsIjoiMTIzMkBxcS5jb20iLCJwaG9uZSI6MTMzMTIzNDU2NDgsImNyZWF0ZUF0IjoiMjAyMi0wOS0yM1QwOTowMzo0NS4yMzJaIiwidXBkYXRlQXQiOiIyMDIyLTA5LTIzVDA5OjAzOjQ1LjIzMloiLCJfX3YiOjB9LCJpYXQiOjE2NjQxODQ5ODUsImV4cCI6MTY2NDE4ODU4NX0.bS8E0CBvMQpbyX6Mo7sUMuBm026ht4xVErmvcCQikSA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"aaaa\",\n    \"email\": \"7@qq.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/user/update",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "图片url",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaW5mbyI6eyJpbWFnZSI6bnVsbCwiY292ZXIiOm51bGwsImNoYW5uZWxkZXMiOm51bGwsIl9pZCI6IjYzMmVlY2MzOTAwZTgzMzNkMTIyMTQxYiIsInVzZXJuYW1lIjoiZGF2ZTMiLCJhZ2UiOjE4LCJlbWFpbCI6IjEyMzMyZUBxcS5jb20iLCJwaG9uZSI6MTMzMTI1NDE2NDgsImNyZWF0ZUF0IjoiMjAyMi0wOS0yNFQxMTozOTo0MC40MTZaIiwidXBkYXRlQXQiOiIyMDIyLTA5LTI0VDExOjM5OjQwLjQxNloiLCJfX3YiOjB9LCJpYXQiOjE2NjQxOTQxOTAsImV4cCI6MTY2NDE5Nzc5MH0.0dMekCQh4x-KnrcidPVClNkkfCW1kpcvofO-dq4sUwU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "uploadimg",
+							"type": "file",
+							"src": "/Users/zhangning/Downloads/img.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/69a95ed85b7fbf5cad199584cc1842b8.jpeg",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"69a95ed85b7fbf5cad199584cc1842b8.jpeg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取视频上传签名(vod)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaW5mbyI6eyJpbWFnZSI6bnVsbCwiY292ZXIiOm51bGwsImNoYW5uZWxkZXMiOm51bGwsIl9pZCI6IjYzMmVlY2MzOTAwZTgzMzNkMTIyMTQxYiIsInVzZXJuYW1lIjoiZGF2ZTMiLCJhZ2UiOjE4LCJlbWFpbCI6IjEyMzMyZUBxcS5jb20iLCJwaG9uZSI6MTMzMTI1NDE2NDgsImNyZWF0ZUF0IjoiMjAyMi0wOS0yNFQxMTozOTo0MC40MTZaIiwidXBkYXRlQXQiOiIyMDIyLTA5LTI0VDExOjM5OjQwLjQxNloiLCJfX3YiOjB9LCJpYXQiOjE2NjQyNjg3ODIsImV4cCI6MTY2NDI3MjM4Mn0.7x9_jrbiUODh35fbi0CB-erimw5eHPkcW7jGPYBayEM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/video/getvod",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"video",
+						"getvod"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "视频入库",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaW5mbyI6eyJpbWFnZSI6bnVsbCwiY292ZXIiOm51bGwsImNoYW5uZWxkZXMiOm51bGwsIl9pZCI6IjYzMmVlY2MzOTAwZTgzMzNkMTIyMTQxYiIsInVzZXJuYW1lIjoiZGF2ZTMiLCJhZ2UiOjE4LCJlbWFpbCI6IjEyMzMyZUBxcS5jb20iLCJwaG9uZSI6MTMzMTI1NDE2NDgsImNyZWF0ZUF0IjoiMjAyMi0wOS0yNFQxMTozOTo0MC40MTZaIiwidXBkYXRlQXQiOiIyMDIyLTA5LTI0VDExOjM5OjQwLjQxNloiLCJfX3YiOjB9LCJpYXQiOjE2NjQzMzA0NzMsImV4cCI6MTY2NDMzNDA3M30.7Sz65simMpQse0lcoR7V45pZe_RPgZe3saCaSXt6Dr0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"World\",\n    \"vodvideoId\": \"387702306494126419\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/video/createVideo",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"video",
+						"createVideo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "视频列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaW5mbyI6eyJpbWFnZSI6bnVsbCwiY292ZXIiOm51bGwsImNoYW5uZWxkZXMiOm51bGwsIl9pZCI6IjYzMmVlY2MzOTAwZTgzMzNkMTIyMTQxYiIsInVzZXJuYW1lIjoiZGF2ZTMiLCJhZ2UiOjE4LCJlbWFpbCI6IjEyMzMyZUBxcS5jb20iLCJwaG9uZSI6MTMzMTI1NDE2NDgsImNyZWF0ZUF0IjoiMjAyMi0wOS0yNFQxMTozOTo0MC40MTZaIiwidXBkYXRlQXQiOiIyMDIyLTA5LTI0VDExOjM5OjQwLjQxNloiLCJfX3YiOjB9LCJpYXQiOjE2NjQyODU0NDIsImV4cCI6MTY2NDI4OTA0Mn0.RwuBHBAPRg--JU5OwFFGy99hYOSzn37du3NTNKy2JGo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/video/videolist",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"video",
+						"videolist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "视频详情",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaW5mbyI6eyJpbWFnZSI6bnVsbCwiY292ZXIiOm51bGwsImNoYW5uZWxkZXMiOm51bGwsInN1YnNjcmliZWNvdW50IjowLCJfaWQiOiI2MzJlZWNjMzkwMGU4MzMzZDEyMjE0MWIiLCJ1c2VybmFtZSI6ImRhdmUzIiwiYWdlIjoxOCwiZW1haWwiOiIxMjMzMmVAcXEuY29tIiwicGhvbmUiOjEzMzEyNTQxNjQ4LCJjcmVhdGVBdCI6IjIwMjItMDktMjRUMTE6Mzk6NDAuNDE2WiIsInVwZGF0ZUF0IjoiMjAyMi0wOS0yNFQxMTozOTo0MC40MTZaIiwiX192IjowfSwiaWF0IjoxNjY0NDQ3MjkxLCJleHAiOjE2NjQ0NTA4OTF9.lhKXB2GSIKpgaWDrs3vYBK8Qi58-WJOICbVoEShPrzw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"hello\",\n    \"vodvideoId\": \"wqeasdsfefsdsada\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/video/video_detail/6333acd71e1e30f8e1ed863b",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"video",
+						"video_detail",
+						"6333acd71e1e30f8e1ed863b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "频道订阅",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaW5mbyI6eyJpbWFnZSI6bnVsbCwiY292ZXIiOm51bGwsImNoYW5uZWxkZXMiOm51bGwsInN1YnNjcmliZWNvdW50IjowLCJfaWQiOiI2MzJlZWNjMzkwMGU4MzMzZDEyMjE0MWIiLCJ1c2VybmFtZSI6ImRhdmUzIiwiYWdlIjoxOCwiZW1haWwiOiIxMjMzMmVAcXEuY29tIiwicGhvbmUiOjEzMzEyNTQxNjQ4LCJjcmVhdGVBdCI6IjIwMjItMDktMjRUMTE6Mzk6NDAuNDE2WiIsInVwZGF0ZUF0IjoiMjAyMi0wOS0yNFQxMTozOTo0MC40MTZaIiwiX192IjowfSwiaWF0IjoxNjY0NTI1MDMyLCJleHAiOjE2NjQ1Mjg2MzJ9.eLKzWgSj7bOp0Xsu2ApVD9oVCz57PZOTLTXw5B_jqP0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/user/subscribe/632d76ace3388d81e4f92ef0",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"subscribe",
+						"632d76ace3388d81e4f92ef0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "取消频道订阅",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaW5mbyI6eyJpbWFnZSI6bnVsbCwiY292ZXIiOm51bGwsImNoYW5uZWxkZXMiOm51bGwsInN1YnNjcmliZWNvdW50IjowLCJfaWQiOiI2MzJlZWNjMzkwMGU4MzMzZDEyMjE0MWIiLCJ1c2VybmFtZSI6ImRhdmUzIiwiYWdlIjoxOCwiZW1haWwiOiIxMjMzMmVAcXEuY29tIiwicGhvbmUiOjEzMzEyNTQxNjQ4LCJjcmVhdGVBdCI6IjIwMjItMDktMjRUMTE6Mzk6NDAuNDE2WiIsInVwZGF0ZUF0IjoiMjAyMi0wOS0yNFQxMTozOTo0MC40MTZaIiwiX192IjowfSwiaWF0IjoxNjY0NTA4OTgyLCJleHAiOjE2NjQ1MTI1ODJ9.7gSC2s5G_pj5lbA2xL262qBB_11TmMCY_j7xLOFaNZY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"hello\",\n    \"vodvideoId\": \"wqeasdsfefsdsada\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/user/unsubscribe/632eb7fbe3388d81e4f92ef8",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"unsubscribe",
+						"632eb7fbe3388d81e4f92ef8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取频道信息",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaW5mbyI6eyJpbWFnZSI6bnVsbCwiY292ZXIiOm51bGwsImNoYW5uZWxkZXMiOm51bGwsInN1YnNjcmliZWNvdW50IjowLCJfaWQiOiI2MzJlZWNjMzkwMGU4MzMzZDEyMjE0MWIiLCJ1c2VybmFtZSI6ImRhdmUzIiwiYWdlIjoxOCwiZW1haWwiOiIxMjMzMmVAcXEuY29tIiwicGhvbmUiOjEzMzEyNTQxNjQ4LCJjcmVhdGVBdCI6IjIwMjItMDktMjRUMTE6Mzk6NDAuNDE2WiIsInVwZGF0ZUF0IjoiMjAyMi0wOS0yNFQxMTozOTo0MC40MTZaIiwiX192IjowfSwiaWF0IjoxNjY0NTI1MDMyLCJleHAiOjE2NjQ1Mjg2MzJ9.eLKzWgSj7bOp0Xsu2ApVD9oVCz57PZOTLTXw5B_jqP0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"hello\",\n    \"vodvideoId\": \"wqeasdsfefsdsada\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/user/getuser/632eecc3900e8333d122141b",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"getuser",
+						"632eecc3900e8333d122141b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取用户关注过谁",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaW5mbyI6eyJpbWFnZSI6bnVsbCwiY292ZXIiOm51bGwsImNoYW5uZWxkZXMiOm51bGwsInN1YnNjcmliZWNvdW50IjowLCJfaWQiOiI2MzJlZWNjMzkwMGU4MzMzZDEyMjE0MWIiLCJ1c2VybmFtZSI6ImRhdmUzIiwiYWdlIjoxOCwiZW1haWwiOiIxMjMzMmVAcXEuY29tIiwicGhvbmUiOjEzMzEyNTQxNjQ4LCJjcmVhdGVBdCI6IjIwMjItMDktMjRUMTE6Mzk6NDAuNDE2WiIsInVwZGF0ZUF0IjoiMjAyMi0wOS0yNFQxMTozOTo0MC40MTZaIiwiX192IjowfSwiaWF0IjoxNjY0NTI1MDMyLCJleHAiOjE2NjQ1Mjg2MzJ9.eLKzWgSj7bOp0Xsu2ApVD9oVCz57PZOTLTXw5B_jqP0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"hello\",\n    \"vodvideoId\": \"wqeasdsfefsdsada\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/user/getsubscribe/632eecc3900e8333d122141b",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"getsubscribe",
+						"632eecc3900e8333d122141b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取我的粉丝列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaW5mbyI6eyJpbWFnZSI6bnVsbCwiY292ZXIiOm51bGwsImNoYW5uZWxkZXMiOm51bGwsIl9pZCI6IjYzMmViN2ZiZTMzODhkODFlNGY5MmVmOCIsInVzZXJuYW1lIjoiZGF2ZTEyIiwiYWdlIjoxOCwiZW1haWwiOiIxMjMyZUBxcS5jb20iLCJwaG9uZSI6MTMzMTI1NDU2NDgsImNyZWF0ZUF0IjoiMjAyMi0wOS0yM1QwOTowMzo0NS4yMzJaIiwidXBkYXRlQXQiOiIyMDIyLTA5LTIzVDA5OjAzOjQ1LjIzMloiLCJfX3YiOjAsInN1YnNjcmliZWNvdW50IjoxfSwiaWF0IjoxNjY0NTI3NjczLCJleHAiOjE2NjQ1MzEyNzN9.PAHcYf7PoJB9oiuVhi6eDiJA2xB3avCZN018cYaXmhw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"hello\",\n    \"vodvideoId\": \"wqeasdsfefsdsada\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/user/getchannel",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"getchannel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "视频评论",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaW5mbyI6eyJpbWFnZSI6bnVsbCwiY292ZXIiOm51bGwsImNoYW5uZWxkZXMiOm51bGwsInN1YnNjcmliZWNvdW50IjowLCJfaWQiOiI2MzJlZWNjMzkwMGU4MzMzZDEyMjE0MWIiLCJ1c2VybmFtZSI6ImRhdmUzIiwiYWdlIjoxOCwiZW1haWwiOiIxMjMzMmVAcXEuY29tIiwicGhvbmUiOjEzMzEyNTQxNjQ4LCJjcmVhdGVBdCI6IjIwMjItMDktMjRUMTE6Mzk6NDAuNDE2WiIsInVwZGF0ZUF0IjoiMjAyMi0wOS0yNFQxMTozOTo0MC40MTZaIiwiX192IjowfSwiaWF0IjoxNjY1MzIxMTk2LCJleHAiOjE2NjUzMjQ3OTZ9.J7Coaxwn1Qs4O4xzdy0vrrumU5z8xEahuvw8CM2jL84",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\": \"Hello dave\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/video/video_comment/6333ac5cfa9fc52962820e53",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"video",
+						"video_comment",
+						"6333ac5cfa9fc52962820e53"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除视频评论",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaW5mbyI6eyJpbWFnZSI6bnVsbCwiY292ZXIiOm51bGwsImNoYW5uZWxkZXMiOm51bGwsInN1YnNjcmliZWNvdW50IjowLCJfaWQiOiI2MzJlZWNjMzkwMGU4MzMzZDEyMjE0MWIiLCJ1c2VybmFtZSI6ImRhdmUzIiwiYWdlIjoxOCwiZW1haWwiOiIxMjMzMmVAcXEuY29tIiwicGhvbmUiOjEzMzEyNTQxNjQ4LCJjcmVhdGVBdCI6IjIwMjItMDktMjRUMTE6Mzk6NDAuNDE2WiIsInVwZGF0ZUF0IjoiMjAyMi0wOS0yNFQxMTozOTo0MC40MTZaIiwiX192IjowfSwiaWF0IjoxNjY0NjEyNDY2LCJleHAiOjE2NjQ2MTYwNjZ9.Qa8JFKxnLuGcv6xt7FlomsDI4O65dsgQyX2DUnziywE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\": \"xxx\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/video/comment/6333ac5cfa9fc52962820e53/6337f7f1ee6358ce19aa08aa",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"video",
+						"comment",
+						"6333ac5cfa9fc52962820e53",
+						"6337f7f1ee6358ce19aa08aa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "视频评论列表",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaW5mbyI6eyJpbWFnZSI6bnVsbCwiY292ZXIiOm51bGwsImNoYW5uZWxkZXMiOm51bGwsIl9pZCI6IjYzMmViN2ZiZTMzODhkODFlNGY5MmVmOCIsInVzZXJuYW1lIjoiZGF2ZTEyIiwiYWdlIjoxOCwiZW1haWwiOiIxMjMyZUBxcS5jb20iLCJwaG9uZSI6MTMzMTI1NDU2NDgsImNyZWF0ZUF0IjoiMjAyMi0wOS0yM1QwOTowMzo0NS4yMzJaIiwidXBkYXRlQXQiOiIyMDIyLTA5LTIzVDA5OjAzOjQ1LjIzMloiLCJfX3YiOjAsInN1YnNjcmliZWNvdW50IjoxfSwiaWF0IjoxNjY0NTkzOTQ1LCJleHAiOjE2NjQ1OTc1NDV9.83sDZAJRLKw4DiIw3poT5IjW8Xg5ZJ3T07_WJdAH4SU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\": \"xxx\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/video/commentlist/6333ac5cfa9fc52962820e53",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"video",
+						"commentlist",
+						"6333ac5cfa9fc52962820e53"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "视频是否喜欢",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaW5mbyI6eyJpbWFnZSI6bnVsbCwiY292ZXIiOm51bGwsImNoYW5uZWxkZXMiOm51bGwsIl9pZCI6IjYzMmViN2ZiZTMzODhkODFlNGY5MmVmOCIsInVzZXJuYW1lIjoiZGF2ZTEyIiwiYWdlIjoxOCwiZW1haWwiOiIxMjMyZUBxcS5jb20iLCJwaG9uZSI6MTMzMTI1NDU2NDgsImNyZWF0ZUF0IjoiMjAyMi0wOS0yM1QwOTowMzo0NS4yMzJaIiwidXBkYXRlQXQiOiIyMDIyLTA5LTIzVDA5OjAzOjQ1LjIzMloiLCJfX3YiOjAsInN1YnNjcmliZWNvdW50IjoxfSwiaWF0IjoxNjY0NTkzOTQ1LCJleHAiOjE2NjQ1OTc1NDV9.83sDZAJRLKw4DiIw3poT5IjW8Xg5ZJ3T07_WJdAH4SU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\": \"xxx\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/video/commentlist/6333ac5cfa9fc52962820e53",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"video",
+						"commentlist",
+						"6333ac5cfa9fc52962820e53"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "视频收藏",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaW5mbyI6eyJpbWFnZSI6bnVsbCwiY292ZXIiOm51bGwsImNoYW5uZWxkZXMiOm51bGwsInN1YnNjcmliZWNvdW50IjowLCJfaWQiOiI2MzJlZWNjMzkwMGU4MzMzZDEyMjE0MWIiLCJ1c2VybmFtZSI6ImRhdmUzIiwiYWdlIjoxOCwiZW1haWwiOiIxMjMzMmVAcXEuY29tIiwicGhvbmUiOjEzMzEyNTQxNjQ4LCJjcmVhdGVBdCI6IjIwMjItMDktMjRUMTE6Mzk6NDAuNDE2WiIsInVwZGF0ZUF0IjoiMjAyMi0wOS0yNFQxMTozOTo0MC40MTZaIiwiX192IjowfSwiaWF0IjoxNjY1MzIxMTk2LCJleHAiOjE2NjUzMjQ3OTZ9.J7Coaxwn1Qs4O4xzdy0vrrumU5z8xEahuvw8CM2jL84",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\": \"xxx\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/video/collect/6332fe3ac115dcceaab34fab",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"video",
+						"collect",
+						"6332fe3ac115dcceaab34fab"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取热门视频",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaW5mbyI6eyJpbWFnZSI6bnVsbCwiY292ZXIiOm51bGwsImNoYW5uZWxkZXMiOm51bGwsInN1YnNjcmliZWNvdW50IjowLCJfaWQiOiI2MzJlZWNjMzkwMGU4MzMzZDEyMjE0MWIiLCJ1c2VybmFtZSI6ImRhdmUzIiwiYWdlIjoxOCwiZW1haWwiOiIxMjMzMmVAcXEuY29tIiwicGhvbmUiOjEzMzEyNTQxNjQ4LCJjcmVhdGVBdCI6IjIwMjItMDktMjRUMTE6Mzk6NDAuNDE2WiIsInVwZGF0ZUF0IjoiMjAyMi0wOS0yNFQxMTozOTo0MC40MTZaIiwiX192IjowfSwiaWF0IjoxNjY1MzE5OTUxLCJleHAiOjE2NjUzMjM1NTF9.CLndalbCE4CHQ69qx3CRUWQYKN5pjMhz30XdMOrt2SM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\": \"xxx\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/video/videohots/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"video",
+						"videohots",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
